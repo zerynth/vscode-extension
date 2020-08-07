@@ -1,0 +1,466 @@
+{
+	"name": "zerynth",
+	"displayName": "Zerynth (beta)",
+	"description": "",
+	"version": "0.0.6",
+	"publisher": "zerynth",
+	"engines": {
+		"vscode": "^1.44.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"workspaceContains:.zproject",
+		"onCommand:zpanel.newProject",
+		"onCommand:explorer.panels.example.search"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "zerynth.compile",
+				"title": "Zerynth > Compile"
+			},
+			{
+				"command": "zerynth.register",
+				"title": "Zerynth > Register a new device"
+			},
+			{
+				"command": "zerynth.uplink",
+				"title": "Zerynth > Uplink"
+			},
+			{
+				"command": "zerynth.console",
+				"title": "Zerynth > Open Device Console"
+			},
+			{
+				"command": "zerynth.install",
+				"title": "Zerynth > Install Zerynth OS on Device"
+			},
+			{
+				"command": "explorer.panels.zerynth_manager.deviceInformation",
+				"title": "Zerynth > Device information"
+			},
+			{
+				"command": "zerynth.virtualize",
+				"title": "Zerynth > Virtualize"
+			},
+			{
+				"command": "explorer.panels.zerynth_manager.setEntry",
+				"title": "Zerynth > Select target device",
+				"icon": {
+					"light": "resources/light/edit.svg",
+					"dark": "resources/dark/edit.svg"
+				}
+			},
+			{
+				"command": "zerynth.panels.discovered_devices.eraseFlash",
+				"title": "Zerynth > erase flash"
+			},
+			{
+				"command": "explorer.panels.zerynth_manager.devicePinMap",
+				"title": "Zerynth > Device Pinmap"
+			},
+			{
+				"command": "z_supported_devices.devicePinMap",
+				"title": "Device Pinmap",
+				"icon": {
+					"light": "resources/light/circuit-board.svg",
+					"dark": "resources/dark/circuit-board.svg"
+				}
+			},
+			{
+				"command": "explorer.panels.example.clone",
+				"title": "Zerynth > Clone",
+				"icon": {
+					"light": "resources/light/clone.svg",
+					"dark": "resources/dark/clone.svg"
+				}
+			},
+			{
+				"command": "explorer.panels.example.search",
+				"title": "Zerynth > Search examples",
+				"icon": {
+					"light": "resources/light/search.svg",
+					"dark": "resources/dark/search.svg"
+				}
+			},
+			{
+				"command": "zerynth.panels.login_credential.login",
+				"title": "Zerynth > Login"
+			},
+			{
+				"command": "zerynth.panels.login_credential.register",
+				"title": "Zerynth > Register a new profile"
+			},
+			{
+				"command": "zpanel.logout",
+				"title": "Zerynth > Logout"
+			},
+			{
+				"command": "zpanel.newProject",
+				"title": "Zerynth > New zerynth project"
+			},
+			{
+				"command": "zerynth.panels.device_manager.open_zdm",
+				"title": "Zerynth > ZDM Graphical User Interface"
+			},
+			{
+				"command": "zerynth.panels.device_manager.info_zdm",
+				"title": "Zerynth > doc Zerynth Device Manager"
+			},
+			{
+				"command": "zerynth.panels.discovered_devices.addZDM",
+				"title": "Zerynth > add device to ZDM"
+			},
+			{
+				"command": "explorer.panels.zerynth_manager.Fota",
+				"title": "Zerynth > FOTA"
+			},
+			{
+				"command": "zerynth.panels.device_manager.addWorkspace",
+				"title": "Zerynth > add workspace to ZDM",
+				"icon": {
+					"light": "resources/light/add.svg",
+					"dark": "resources/dark/add.svg"
+				}
+			},
+			{
+				"command": "zerynth.panels.device_manager.addFleet",
+				"title": "Zerynth > add fleet to workspace",
+				"icon": {
+					"light": "resources/light/add.svg",
+					"dark": "resources/dark/add.svg"
+				}
+			},
+			{
+				"command": "explorer.panels.device_manager.addWorkspace",
+				"title": "Zerynth > add workspace to ZDM",
+				"icon": {
+					"light": "resources/light/add.svg",
+					"dark": "resources/dark/add.svg"
+				}
+			},
+			{
+				"command": "explorer.panels.device_manager.addFleet",
+				"title": "Zerynth > add fleet to workspace",
+				"icon": {
+					"light": "resources/light/add.svg",
+					"dark": "resources/dark/add.svg"
+				}
+			},
+			{
+				"command": "explorer.panels.zerynth_manager.lookDevice",
+				"title": "Zerynth > open device information",
+				"icon": {
+					"light": "resources/light/eye.svg",
+					"dark": "resources/dark/eye.svg"
+				}
+			},
+			{
+				"command": "explorer.panels.zerynth_manager.setZDMEntry",
+				"title": "Zerynth > select ZDM target device",
+				"icon": {
+					"light": "resources/light/edit.svg",
+					"dark": "resources/dark/edit.svg"
+				}
+			},
+			{
+				"command": "zerynth.panels.device_manager.lookDevice",
+				"title": "Zerynth > open device information",
+				"icon": {
+					"light": "resources/light/eye.svg",
+					"dark": "resources/dark/eye.svg"
+				}
+			},
+			{
+				"command": "explorer.panels.device_manager.lookDevice",
+				"title": "Zerynth > open device information",
+				"icon": {
+					"light": "resources/light/eye.svg",
+					"dark": "resources/dark/eye.svg"
+				}
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "zpanel",
+					"title": "Zerynth",
+					"icon": "media/zerynth.svg"
+				}
+			]
+		},
+		"views": {
+			"zpanel": [
+				{
+					"id": "zerynth.panels.console_manager",
+					"name": "Console manager",
+					"when": "activation.key==true"
+				},
+				{
+					"id": "z_supported_devices",
+					"name": "Supported Devices",
+					"when": "activation.key==true"
+				},
+				{
+					"id": "zerynth.panels.device_manager",
+					"name": "Zerynth device manager",
+					"when": "activation.key==true"
+				}
+			],
+			"explorer": [
+				{
+					"id": "explorer.panels.zerynth_manager",
+					"name": "Zerynth control panel",
+					"when": "activation.key==true"
+				},
+				{
+					"id": "explorer.panels.device_manager",
+					"name": "Zerynth device manager",
+					"when": "activation.key==true"
+				},
+				{
+					"id": "explorer.panels.example",
+					"name": "Zerynth examples",
+					"when": "activation.key==true"
+				}
+			]
+		},
+		"viewsWelcome": [
+			{
+				"view": "zerynth.panels.login_credential",
+				"contents": "[Login](command:zerynth.panels.login_credential.login)\n[Register](command:zerynth.panels.login_credential.register)"
+			},
+			{
+				"view": "explorer",
+				"contents": "You can also create a new zerynth project.\n[New Zerynth project](command:zpanel.newProject)\n You can also clone a zerynth example.\n[Clone Zerynth example](command:explorer.panels.example.search)"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "explorer.panels.zerynth_manager.deviceInformation",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "explorer.panels.device_manager.lookDevice",
+					"when": "false"
+				},
+				{
+					"command": "zerynth.panels.device_manager.lookDevice",
+					"when": "false"
+				},
+				{
+					"command": "explorer.panels.zerynth_manager.lookDevice",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "explorer.panels.zerynth_manager.setZDMEntry",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "zerynth.virtualize",
+					"when": "false"
+				},
+				{
+					"command": "explorer.panels.zerynth_manager.setEntry",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "zerynth.panels.discovered_devices.eraseFlash",
+					"when": "erasable.key==true && activation.key==true"
+				},
+				{
+					"command": "zerynth.compile",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "zerynth.uplink",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "zerynth.console",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "zerynth.install",
+					"when": "false"
+				},
+				{
+					"command": "explorer.panels.zerynth_manager.devicePinMap",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "explorer.panels.example.clone",
+					"when": "false"
+				},
+				{
+					"command": "zerynth.register",
+					"when": "false"
+				},
+				{
+					"command": "zerynth.panels.login_credential.login",
+					"when": "false"
+				},
+				{
+					"command": "zerynth.panels.login_credential.register",
+					"when": "false"
+				},
+				{
+					"command": "zpanel.logout",
+					"when": "false"
+				},
+				{
+					"command": "z_supported_devices.devicePinMap",
+					"when": "false"
+				},
+				{
+					"command": "zerynth.panels.device_manager.open_zdm",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "zerynth.panels.device_manager.info_zdm",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "zerynth.panels.discovered_devices.addZDM",
+					"when": "false"
+				},
+				{
+					"command": "explorer.panels.zerynth_manager.Fota",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "zerynth.panels.device_manager.addWorkspace",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "zerynth.panels.device_manager.addFleet",
+					"when": "activation.key==true"
+				},
+				{
+					"command": "explorer.panels.device_manager.addWorkspace",
+					"when": "false"
+				},
+				{
+					"command": "explorer.panels.device_manager.addFleet",
+					"when": "false"
+				}
+			],
+			"view/title": [
+				{
+					"command": "explorer.panels.example.search",
+					"when": "view == explorer.panels.example",
+					"group": "navigation"
+				},
+				{
+					"command": "zerynth.panels.device_manager.addWorkspace",
+					"when": "view == zerynth.panels.device_manager",
+					"group": "navigation"
+				},
+				{
+					"command": "explorer.panels.device_manager.addWorkspace",
+					"when": "view == explorer.panels.device_manager",
+					"group": "navigation"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "explorer.panels.zerynth_manager.setEntry",
+					"when": "view == explorer.panels.zerynth_manager && viewItem == targetitem",
+					"group": "inline"
+				},
+				{
+					"command": "zerynth.console",
+					"when": "view == zerynth.panels.discovered_devices && viewItem == deviceitem"
+				},
+				{
+					"command": "explorer.panels.zerynth_manager.devicePinMap",
+					"when": "view == zerynth.panels.discovered_devices && viewItem == deviceitem"
+				},
+				{
+					"command": "z_supported_devices.devicePinMap",
+					"when": "view == z_supported_devices && viewItem == supporteditem",
+					"group": "inline"
+				},
+				{
+					"command": "explorer.panels.example.clone",
+					"when": "view == explorer.panels.example && viewItem == exampleitem",
+					"group": "inline"
+				},
+				{
+					"command": "zerynth.panels.device_manager.addFleet",
+					"when": "view == zerynth.panels.device_manager && viewItem == workspaceItem",
+					"group": "inline"
+				},
+				{
+					"command": "explorer.panels.device_manager.addFleet",
+					"when": "view == explorer.panels.device_manager && viewItem == workspaceItem",
+					"group": "inline"
+				},
+				{
+					"command": "explorer.panels.zerynth_manager.lookDevice",
+					"when": "view == explorer.panels.zerynth_manager && viewItem == zdmitem && select.key==true",
+					"group": "inline"
+				},
+				{
+					"command": "explorer.panels.device_manager.lookDevice",
+					"when": "view == explorer.panels.device_manager && viewItem == devItem",
+					"group": "inline"
+				},
+				{
+					"command": "zerynth.panels.device_manager.lookDevice",
+					"when": "view == zerynth.panels.device_manager && viewItem == devItem",
+					"group": "inline"
+				},
+				{
+					"command": "explorer.panels.zerynth_manager.setZDMEntry",
+					"when": "view == explorer.panels.zerynth_manager && viewItem == zdmitem",
+					"group": "inline"
+				}
+			]
+		},
+		"taskDefinitions": [
+			{
+				"type": "zerynth",
+				"required": [
+					"task"
+				],
+				"properties": {
+					"task": {
+						"type": "string",
+						"description": "The Zerynth Task"
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.44.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"@typescript-eslint/parser": "^2.26.0",
+		"@typescript-eslint/eslint-plugin": "^2.26.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.1",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {
+		"directory": "^0.1.0",
+		"window": "^4.2.7",
+		"yaml": "^1.9.2"
+	}
+}

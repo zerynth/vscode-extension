@@ -191,9 +191,9 @@ export function Init(updatecb: (s: ZStatus)=>void) {
 			for (let i in ss["python.autoComplete.extraPaths"]) {
 				ss["python.autoComplete.extraPaths"][i] = ss["python.autoComplete.extraPaths"][i].replace("###", v);
 			}
-			ss["python.linting.pylintArgs"]=["--rcfile",linter(plt,v)];
+			ss["python.linting.pylintArgs"]=["--rcfile",linter(plt)];
 			Log(`Adding Python intellisense support in ${sf}`);
-			fs.writeFileSync(sf, JSON.stringify(ss));
+			fs.writeFileSync(sf, JSON.stringify(ss,null,4));
 
 			/* SETUP project.yml watcher */
 			let pattern = path.join(vscode.workspace.rootPath || ".", 'project.yml');
@@ -266,7 +266,7 @@ export function ZTC(args: string[]): Promise<ZResponse> {
 }
 
 export function ZDM(args: string[]): Promise<ZResponse> {
-	return Run("zdm.cmd", args);
+	return Run("zdm", args);
 }
 
 export function Executing(cmd: string, running?: boolean): boolean {
@@ -797,14 +797,14 @@ export function forget(alias:string){
 	});
 }
 
-function linter(plt:string,v:string):string{
+function linter(plt:string):string{
 	if(plt==="linux64"){
-		return '${env:HOME}/.zerynth2/dist/'+v+'/ztc/linter';
+		return '${env:HOME}/.zerynth2/sys/cli/linter/zlintrc';
 	}else{
 		if(plt==="windows64"){
-			return process.env['USERPROFILE']+"/zerynth2/dist/"+v+"/ztc/linter";
+			return process.env['USERPROFILE']+"/zerynth2/sys/cli/linter/zlintrc";
 		}else{
-			return '${env:HOME}/.zerynth2/dist/'+v+'/ztc/linter';
+			return '${env:HOME}/.zerynth2/sys/cli/linter/zlintrc';
 		}
 	}
 }

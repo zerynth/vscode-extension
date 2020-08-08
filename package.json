@@ -2,7 +2,13 @@
 	"name": "zerynth",
 	"displayName": "Zerynth (beta)",
 	"description": "",
-	"version": "0.0.6",
+	
+	
+	"icon": "media/zerynth_logo-transparent-bckg.png", 
+	"repository": { "type": "git", "url": "https://github.com/zerynth/vscode-extension/blob/master/media/zerynth_logo-transparent-bckg.png" },
+
+
+	"version": "0.0.7",
 	"publisher": "zerynth",
 	"engines": {
 		"vscode": "^1.44.0"

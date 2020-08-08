@@ -13,7 +13,6 @@ import * as zdmExp from './panels/zdmExplorer';
 import * as cm from './panels/consoleManager';
 import { getDevices } from './panels/discovered';
 import { deviceNodeInit, matches } from './panels/supported';
-import{ BuildNative } from "./__buildnative__";
 import { basename } from 'path';
 import { match } from 'assert';
 
@@ -266,7 +265,11 @@ export function ZTC(args: string[]): Promise<ZResponse> {
 }
 
 export function ZDM(args: string[]): Promise<ZResponse> {
-	return Run("zdm", args);
+	if(Platform()==="windows64"){
+		return Run("zdm.cmd", args);
+	}else{
+		return Run("zdm", args);
+	}
 }
 
 export function Executing(cmd: string, running?: boolean): boolean {
@@ -804,7 +807,7 @@ function linter(plt:string):string{
 		if(plt==="windows64"){
 			return process.env['USERPROFILE']+"/zerynth2/sys/cli/linter/zlintrc";
 		}else{
-			return '${env:HOME}/.zerynth2/sys/cli/linter/zlintrc';
+			return '${env:HOME}/.zerynth2/dist/sys/cli/linter/zlintrc';
 		}
 	}
 }
@@ -814,7 +817,6 @@ let _isense_settings: { [id: string]: any; } = {
 	linux64: {
 		'python.pythonPath': '${env:HOME}/.zerynth2/sys/python/bin/python3',
 		'python.autoComplete.extraPaths': [
-			'${env:HOME}/.zerynth2/dist/###/stdlib/__builtins__.py',
 			'${env:HOME}/.zerynth2/dist/###/stdlib/wireless',
 			'${env:HOME}/.zerynth2/dist/###/stdlib/crypto',
 			'${env:HOME}/.zerynth2/dist/###/stdlib/bignum',
@@ -827,7 +829,6 @@ let _isense_settings: { [id: string]: any; } = {
 	windows64: {
 		"python.pythonPath": process.env['USERPROFILE']+"/zerynth2/sys/python/python.exe",
 		'python.autoComplete.extraPaths': [
-			process.env['USERPROFILE']+"/zerynth2/dist/###/stdlib/__builtins__.py",
 			process.env['USERPROFILE']+"/zerynth2/dist/###/stdlib/wireless",
 			process.env['USERPROFILE']+"/zerynth2/dist/###/stdlib/crypto",
 			process.env['USERPROFILE']+"/zerynth2/dist/###/stdlib/bignum",
@@ -840,7 +841,6 @@ let _isense_settings: { [id: string]: any; } = {
 	mac: {
 		'python.pythonPath': '${env:HOME}/.zerynth2/sys/python/bin/python',
 		'python.autoComplete.extraPaths': [
-			'${env:HOME}/.zerynth2/dist/###/stdlib/__builtins__.py',
 			'${env:HOME}/.zerynth2/dist/###/stdlib/wireless',
 			'${env:HOME}/.zerynth2/dist/###/stdlib/crypto',
 			'${env:HOME}/.zerynth2/dist/###/stdlib/bignum',
